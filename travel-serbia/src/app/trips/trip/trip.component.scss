@@ -1,0 +1,197 @@
+@import "../../../mixins.scss";
+.trip{
+    width: 80%;
+    margin: 0 auto;
+    color: white;
+    overflow: hidden;
+    @include respond(tab-land) {
+        width: 90%;
+    }
+    @include respond(tab-port) {
+        width: 100%;
+    }
+
+    &__up{
+        width: 100%;
+        height: 60rem;
+        position: relative;
+        &__container{
+            position: absolute;
+            display: inline-block;
+            bottom: 1rem;
+            left: 1rem;
+            &__name,&__location{
+                font-size: 5rem;
+                text-transform: uppercase;
+                padding:.5rem;
+                background-color: #7abd30;
+                display: inline-block;
+            }
+            &__location{
+                font-size: 3rem;
+            }
+        }
+    }
+    &__down{
+        width: 100%;
+        height: 40%;
+        margin-top: 2rem;
+        &__menu{
+            color:black;
+            padding-bottom: 2rem;
+            font-size: 2.5rem;
+            border-bottom: 1px solid #ccc;
+            &::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+            span{
+                padding:.5rem 1rem;
+            }
+            &__left{
+                float: left;
+                @include respond(phone) {
+                    float: none;
+                    text-align: center;
+                }
+                .price{
+                    color:#7abd30;
+                    font-weight: bold;
+                    padding:0;
+                }
+                .days{
+                    color: #dc3545;
+                    font-weight: bold;
+                }
+            }
+            &__right{
+                float: right;
+                @include respond(phone) {
+                    float: none;
+                    text-align: center;
+                    margin-top:3rem;
+                }
+                .enroll{
+                    background-color: #7abd30;
+                    color: white;
+                    cursor: pointer;
+                    border-radius: 2rem;
+                    &:hover{
+                        background-color: #669e28;
+                        box-shadow: 0 1rem 2rem rgba(black,0.15);
+                    }
+                    &:active{
+                        box-shadow: 0 .5rem 1rem rgba(black,0.15);
+                    }
+                }
+                .ask{
+                    border: 2px solid #dc3545;
+                    color: #dc3545;
+                    cursor: pointer;
+                    border-radius: 2rem;
+                    margin-left: 1rem;
+                    &:hover{
+                        background-color: #dc3545;
+                        color: white;
+                        box-shadow: 0 1rem 2rem rgba(black,0.15);
+                    }
+                    &:active{
+                        box-shadow: 0 .5rem 1rem rgba(black,0.15);
+                    }
+                }
+            }
+        }
+        &__students{
+            h1{
+                font-size: 2.5rem;
+                margin-top: 1rem;
+                padding: 1rem;
+                font-weight: bold;
+                text-transform: uppercase;
+                color: black;
+                @include respond(tab-land) {
+                    font-size: 1.8rem;
+                }
+            }
+            text-align: center;
+            width: 20%;
+            height: 100%;
+            color: black;
+            display: inline-block;
+            text-transform: uppercase;
+            font-size: 2rem;
+            border-right: 1px solid #ccc;
+            vertical-align: top;
+            @include respond(phone) {
+                width: 100%;
+                display: block;
+                border-right: none;
+                border-bottom: 1px solid #ccc;
+                padding-bottom: 2rem;
+            }
+            li{
+                margin-top: 1rem;
+                @include respond(tab-land) {
+                    font-size: 1.4rem;
+                }
+            }
+            img{
+                width: 2rem;
+                padding-right: .5rem;
+                color: black;
+            }
+        }
+        &__text{
+            display: inline-block;
+            width: 80%;
+            padding: 2rem;
+            font-size: 2rem;
+            color: black;
+            text-align: left;
+            h1{
+                text-transform: uppercase;
+                font-size: 2.5rem;
+                font-weight: bold;
+                padding-bottom: 1rem;
+                @include respond(tab-land) {
+                    font-size: 1.8rem;
+                }
+            }
+        }
+        &__table{
+            padding-top:5rem;
+            width: 100%;
+            font-size: 2rem;
+            color: black;
+            &__left{
+                width: 50%;
+                display: inline-block;
+                @include respond(phone) {
+                    width: 100%;
+                    display: block;
+                }
+            }
+            &__right{
+                width: 50%;
+                display: inline-block;
+                @include respond(phone) {
+                    width: 100%;
+                    display: block;
+                }
+            }
+            .text{
+                text-transform: uppercase;
+                display: inline-block;
+                width: 50%;
+                margin-bottom: 3rem;
+                font-weight: bold;
+            }
+            span{
+                display: inline-block;
+                width: 50%;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,41 @@
+<div class="admin">
+    <h1 class="admin__header">Admin panel</h1>
+    <div class="admin__search" *ngIf="searching">
+        <form #form="ngForm" (ngSubmit)="onSubmitSearch(form)">
+            <input type="text" ngModel required name="search" (keyup)="search($event)" (blur)="lostFocus()" id="search" placeholder="Search trip" autocomplete="off"><br>
+            <ul class="admin__list">
+                <li *ngFor="let trip of searchTrips | slice:0:5; let i = index;" (click)="chooseItem($event)" class="admin__item">{{trip.id}}</li>
+            </ul>
+            <input type="submit" class="search__button" value="FIND TRIP">
+        </form>   
+    </div>
+    <div class="admin__trip" [hidden]="searching">
+        <form #tripForm="ngForm" (ngSubmit)="onSubmitTrip(tripForm)" class="tripForm">
+            <label for="name">NAME</label>
+            <input type="text" ngModel required name="name" id="name" placeholder="Trip name" autocomplete="off"><br>
+            <label for="text">TEXT</label>
+            <input type="text" ngModel required name="text" id="text" placeholder="Trip text" autocomplete="off"><br>
+            <label for="STATUS">STATUS</label>
+            <select name="status" ngModel id="status">
+                <option value="active">ACTIVE</option>
+                <option value="Done">DONE</option>
+                <option value="Reserved">RESERVED</option>
+                <option value="canceled">CANCELED</option>
+            </select><br>
+            <label for="type">TYPE</label>
+            <input type="text" ngModel required name="type" id="type" placeholder="Trip type" autocomplete="off"><br>
+            <label for="price">PRICE</label>
+            <input type="number" ngModel required name="price" id="price" placeholder="Trip price" autocomplete="off"><br>
+            <label for="location">LOCATION</label>
+            <input type="text" ngModel required name="location" id="location" placeholder="Trip location" autocomplete="off"><br>
+            <label for="image">IMAGE URL</label>
+            <input type="text" ngModel required name="image" id="image" placeholder="Trip image" autocomplete="off"><br>
+            <label for="from">DATE FROM</label>
+            <input type="date" ngModel required name="from" id="from" placeholder="Trip from" autocomplete="off"><br>
+            <label for="to">DATE TO</label>
+            <input type="date" ngModel required name="to" id="to" placeholder="Trip to" autocomplete="off"><br>
+            <input type="submit" class="search__button" value="SAVE TRIP">
+        </form>   
+    </div>
+    <div class="goback" [routerLink]="'/'">&larr; Go back</div>
+</div>

@@ -1,0 +1,58 @@
+<div class="home">
+    <img src="../../assets/img/logo.png" alt="Our logo" class="home__logo">
+<div class="home__menu">
+    <ul>
+        <li><a href="#">Explore</a></li>
+        <li><a href="#">Learn</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</div>
+<div class="home__box">
+    <div class="home__header">explore everything <span>Serbia has to offer</span></div>
+    <form class="home__form" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        <input type="search" name="search" class="home__search" (keyup)="search($event)" (blur)="lostFocus()" placeholder="Where to?">
+        <div class="search">
+            <ul class="search__list">
+                <li *ngFor="let trip of searchTrips | slice:0:5; let i = index;" [routerLink]="['/trip']" [queryParams]="{id:searchTrips[i].id,name:searchTrips[i].name,status:searchTrips[i].status,from:searchTrips[i].from,image:searchTrips[i].image,location:searchTrips[i].location,price:searchTrips[i].price,students:searchTrips[i].students | json,text:searchTrips[i].text,to:searchTrips[i].to,type:searchTrips[i].type}" class="search__item">{{trip.name}} <span>{{trip.location}}</span></li>
+            </ul>
+        </div>
+    </form>
+</div>
+<div class="home__buttons">
+    <div class="home__login" *ngIf="!isLoggedIn">
+        <input type="checkbox" id="login-toggle" class="home__login__checkbox">
+        <label for="login-toggle" class="home__login__button">
+            <span>Login</span>
+        </label>
+        <div class="home__login__popup" id="popup">
+            <h1>Login</h1>
+            <div *ngIf="isLoading">
+                <app-loading-spinner></app-loading-spinner>
+            </div>
+            <form #form = "ngForm" *ngIf="!isLoading" (ngSubmit)="onSubmit(form)" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                <p [ngClass]="{error : message.type == 'error'}" *ngIf="isFinished && !isLoading" >{{ message.message }}</p>
+                <label for="email">Email</label>
+                <input type="text" ngModel email required name="email" id="email" placeholder="Enter Email"><br>
+                <label for="password">Password</label>
+                <input type="password" ngModel required name="password" id="password" placeholder="Enter Password"><br>
+                <input type="submit" value="LOGIN">
+            </form>
+        </div>
+    </div>
+    <div class="home__register" [routerLink]="'/register'" *ngIf="!isLoggedIn">Register</div>
+    <div class="home__profile" *ngIf="isLoggedIn">
+        <input type="checkbox" id="profile-toggle" class="home__profile__checkbox">
+        <label for="profile-toggle" class="home__profile__button">
+            <span><i class="fas fa-user-alt"></i> Profile</span>
+        </label>
+        <div class="home__profile__popup" id="profilePopup">
+            <ul>
+                <li [routerLink]="'/profile'"><a><i class="far fa-address-card"></i> My profile</a></li>
+                <li [routerLink]="'/history'"><a><i class="fas fa-history"></i> My history</a></li>
+                <li (click)="loginService.signOut()"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</div>  
+</div>
+<app-trips #trips></app-trips>

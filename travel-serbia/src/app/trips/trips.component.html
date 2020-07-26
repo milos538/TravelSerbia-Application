@@ -1,0 +1,71 @@
+<div class="trips">
+    <h1 class="trips__header">Popular places</h1>
+    <h2 class="trips__subheader">Pick a certain destination and go ahead</h2>
+    <div class="trips__container">
+        <ng-container *ngIf="trips[0]">
+            <div class="trips__left" [ngStyle]="{background:'linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),center/cover no-repeat url(../../assets/img/trips/' + trips[0].image + ')'}">
+                <div class="singleTrip">
+                    <div class="singleTrip__header">{{trips[0].name}}</div>
+                    <div class="singleTrip__about">{{trips[0].text}}</div>
+                    <div class="singleTrip__button" routerLink="/trip" [queryParams]="{id:trips[0].id,name:trips[0].name,status:trips[0].status,from:trips[0].from,image:trips[0].image,location:trips[0].location,price:trips[0].price,students:trips[0].students | json,text:trips[0].text,to:trips[0].to,type:trips[0].type}">Learn more</div>
+                </div>
+            </div>
+        </ng-container>
+        <div class="trips__right">
+            <div class="trips__up">
+                <ng-container *ngIf="trips[1]">
+                    <div class="trip" routerLink="/trip" [queryParams]="{id:trips[1].id,name:trips[1].name,status:trips[1].status,from:trips[1].from,image:trips[1].image,location:trips[1].location,price:trips[1].price,students:trips[1].students | json ,text:trips[1].text,to:trips[1].to,type:trips[1].type}" [ngStyle]="{background: 'center/cover no-repeat url(../../assets/img/trips/' + trips[1].image + ')'}">
+                        <div class="trip__info">
+                            <div class="trip__price">{{trips[1].price + " RSD"}}</div>
+                            <div class="trip__header">{{trips[1].name}}</div>
+                        </div>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="trips[2]">
+                    <div class="trip" routerLink="/trip" [queryParams]="{id:trips[2].id,name:trips[2].name,status:trips[2].status,from:trips[2].from,image:trips[2].image,location:trips[2].location,price:trips[2].price,students:trips[2].students | json,text:trips[2].text,to:trips[2].to,type:trips[2].type}" [ngStyle]="{background: 'center/cover no-repeat url(../../assets/img/trips/' + trips[2].image + ')'}">
+                        <div class="trip__info">
+                            <div class="trip__price">{{trips[2].price + " RSD"}}</div>
+                            <div class="trip__header">{{trips[2].name}}</div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+            <div class="trips__down">
+                <ng-container *ngIf="trips[3]">
+                    <div class="trip" routerLink="/trip" [queryParams]="{id:trips[3].id,name:trips[3].name,status:trips[3].status,from:trips[3].from,image:trips[3].image,location:trips[3].location,price:trips[3].price,students:trips[3].students| json,text:trips[3].text,to:trips[3].to,type:trips[3].type}"[ngStyle]="{background: 'center/cover no-repeat url(../../assets/img/trips/' + trips[3].image + ')'}">
+                        <div class="trip__info">
+                            <div class="trip__price">{{trips[3].price + " RSD"}}</div>
+                            <div class="trip__header">{{trips[3].name}}</div>
+                        </div>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="trips[4]">
+                    <div class="trip" routerLink="/trip" [queryParams]="{id:trips[4].id,name:trips[4].name,status:trips[4].status,from:trips[4].from,image:trips[4].image,location:trips[4].location,price:trips[4].price,students:trips[4].students| json,text:trips[4].text,to:trips[4].to,type:trips[4].type}"[ngStyle]="{background: 'center/cover no-repeat url(../../assets/img/trips/' + trips[4].image + ')'}">
+                        <div class="trip__info">
+                            <div class="trip__price">{{trips[4].price + " RSD"}}</div>
+                            <div class="trip__header">{{trips[4].name}}</div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+    <h1 class="trips__header" *ngIf="isLoggedIn">Recommended for you</h1>
+    <div class="recommended" *ngIf="isLoggedIn">
+        <div class="smallTrip" *ngFor="let trip of recommended | slice:0:5; let i = index;" [routerLink]="['/trip']" [queryParams]="{id:recommended[i].id,name:recommended[i].name,status:recommended[i].status,from:recommended[i].from,image:recommended[i].image,location:recommended[i].location,price:recommended[i].price,students:recommended[i].students | json,text:recommended[i].text,to:recommended[i].to,type:recommended[i].type}" [ngStyle]="{background: 'center/cover no-repeat url(../../assets/img/trips/' + recommended[i].image + ')'}">
+            <div class="trip__info">
+                <div class="trip__price">{{recommended[i].price + " RSD"}}</div>
+                <div class="trip__header">{{recommended[i].name}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="trips__other">
+        <h1 class="trips__header">Our Destinations</h1>
+        <div class="smallTrip" *ngFor="let trip of trips; let i = index;" [routerLink]="['/trip']" [queryParams]="{id:trips[i].id,name:trips[i].name,status:trips[i].status,from:trips[i].from,image:trips[i].image,location:trips[i].location,price:trips[i].price,students:trips[i].students | json,text:trips[i].text,to:trips[i].to,type:trips[i].type}" [ngStyle]="{background: 'center/cover no-repeat url(../../assets/img/trips/' + trips[i].image + ')'}">
+            <div class="trip__info">
+                <div class="trip__price">{{trips[i].price + " RSD"}}</div>
+                <div class="trip__header">{{trips[i].name}}</div>
+            </div>
+        </div>
+    </div>
+</div>

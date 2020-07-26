@@ -1,0 +1,185 @@
+@import "../../../mixins.scss";
+
+.trips{
+    width:80%;
+    margin: 0 auto;
+    &__header{
+        margin: 3rem;
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+        font-size: 3rem;
+        text-align: center;
+        color: #2b2b40;
+        text-transform: uppercase;
+        @include respond(phone) {
+            font-size: 2rem;
+            margin: 1rem 0;
+        }
+    }
+    @include respond(tab-land) {
+        width: 100%;
+    }
+}
+.trip{
+    width:70%;
+    border: 2px solid black;
+    padding:3rem;
+    margin: 2rem auto;
+    font-size: 2rem;
+    &::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+    @include respond(tab-land) {
+        width: 90%;
+    }
+    @include respond(phone) {
+        width: 50%;
+        margin: .5rem auto;
+    }
+    &__name{
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    &__location{
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    &__status{
+        text-transform: uppercase;
+    }
+    &__picture{
+        width: 15rem;
+        height: 10rem;
+        float: left;
+    }
+    &__text{
+        padding-left: 1rem;
+        display: inline-block;
+        width:40%;
+        @include respond(phone) {
+            display: block;
+            width: 100%;
+            padding:1rem 0 1rem 0;
+            margin: 1rem 0;
+            float: left;
+        }
+    }
+    &__stars{
+        width: 35%;
+        unicode-bidi: bidi-override;
+        direction: rtl;
+        float: right;
+        text-align: center;
+        @include respond(phone) {
+            text-align: left;
+            width: 50%;
+            margin-top: 2rem;
+            float:none;
+        }
+        span{
+            font-size: 3.5rem;
+        }
+        & > span:hover:before,
+        & > span:hover ~ span:before {
+            content: "\2605";
+            position: absolute;
+            color: gold;
+        }
+        @include respond(phone) {
+            &::before{
+                content: '';
+                display: table;
+                clear: both;
+            }
+            width: 100%;
+            float: none;
+        }
+    }
+    &__userRating{
+        width: 25%;
+        float: right;
+        text-align: center;
+        span{
+            font-size: 3.5rem;
+            color: gold;
+        }
+        @include respond(phone) {
+            float: left;
+        }
+    }
+    &__subheader{
+        text-transform: uppercase;
+        width: 100%;
+        @include respond(phone) {
+            text-align: left;
+        }
+        text-align: center;
+        font-size: 2rem;
+        text-align: center;
+        color: #6b7e93;
+    }
+}
+.goback{
+    position: fixed;
+    background-color: lighten($color: #a52a2a, $amount: 10);
+    color: white;
+    font-size: 2rem;
+    padding: 1rem;
+    bottom: 1rem;
+    left: 2rem; 
+    border-radius: 5px;
+    cursor: pointer;
+    @include respond(tab-port) {
+        position: static;
+        display: inline-block;
+        margin-left: 5%;
+    }
+    @include respond(phone) {
+        margin-left: 10%;
+    }
+}
+.border-grey{
+    border: 2px solid grey;
+}
+.border-red{
+    border: 2px solid red;
+}
+.border-green{
+    border: 2px solid green;
+}
+.border-lightgreen{
+    border: 2px solid #17b978;
+}
+.color-lightgreen{
+    background-color: #17b978;
+    color: white;
+    display: inline-block;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+.color-grey{
+    background-color: grey;
+    color: white;
+    display: inline-block;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+.color-red{
+    background-color: red;
+    color: white;
+    display: inline-block;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+.color-green{
+    background-color: green;
+    color: white;
+    display: inline-block;
+    padding: 1rem;
+    border-radius: 1rem;
+}

@@ -1,0 +1,32 @@
+<div class="profile">
+    <div class="profile__left">
+        <div class="profile__left__profilePicture"><img class="profile__left__picture" src="../../assets/img/user.svg" alt="user photo"></div>
+        <div class="profile__left__name">{{fullname}}</div>
+        <div class="profile__left__info">
+            <span><i class="fa fa-share" aria-hidden="true"></i> <span class="text email">{{email}}</span></span>
+            <span><i class="fa fa-phone" aria-hidden="true"></i><span class="text phone">{{phone}}</span></span>
+            <span><i class="fa fa-map-marker" aria-hidden="true"></i> <span class="text adress">{{adress}}</span></span>
+        </div>
+    </div>
+    <div class="profile__right">
+        <h1>Account settings</h1>
+        <form id="form" #form = "ngForm" (ngSubmit)="onSubmit()" spellcheck='false'>
+            <label for="name">Name</label><input class="right__formInput" type="text" name="name" id="name" ngModel required pattern="^[A-z ,.']+$"><br>
+            <label for="surname">Surname</label><input class="right__formInput" type="text" name="surname" id="surname" ngModel required pattern="^[A-z ,.']+$"><br>
+            <label for="email">Email</label><input class="right__formInput" type="email" name="email" id="email" ngModel required email><br>
+            <label for="phone">Phone</label><input class="right__formInput" type="text" name="phone" id="phone" ngModel required pattern="^[0-9 ]{5,15}$"><br>
+            <label for="adress">Adress</label><input class="right__formInput" type="text" name="adress" id="adress" ngModel required pattern="^[A-z0-9 /]{0,30}$"><br>
+    
+            <label for="preferences">Preferences</label>
+            <select name="preferences" class="right__formInput" id="preferences" ngModel required>
+                <option>Everything in nature</option>
+                <option>Walking tour</option>
+                <option>Bike tour</option>
+                <option>Rafting</option>
+            </select><br>
+            <label for="spendAmount">Average Budget</label><input class="right__formInput" type="text" name="spendAmount" id="spendAmount" ngModel required pattern="[0-9 ]{1,6}"><br>
+            <label for="submit">Save it</label><input type="submit" class="right__formInput" id="submit" name="submit" value="Save profile">
+        </form>
+    </div>
+    <div class="profile__goback" [routerLink]="'/'">&larr; Go back</div>
+</div>

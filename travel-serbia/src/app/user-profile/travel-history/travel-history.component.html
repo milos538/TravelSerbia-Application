@@ -1,0 +1,26 @@
+<div class="trips">
+    <h1 class="trips__header">Your active and past trips:</h1>
+    <div class="trip" *ngFor="let trip of userTrips; let i = index" data-id={{trip.id}} [ngClass]="{'border-grey': trip.status=='Reserved','border-lightgreen': trip.status=='active', 'border-green': trip.status=='Done', 'border-red':trip.status=='canceled'}">
+        <div class="trip__picture" [ngStyle]="{background: 'center/cover no-repeat url(../../assets/img/trips/' + trip.image + ')'}"></div>
+        <div class="trip__text">
+            <div class="trip__name">{{trip.name}}</div>
+            <div class="trip__location">{{trip.location}}</div>
+            <div class="trip__status" [ngClass]="{'color-grey': trip.status=='Reserved','color-lightgreen': trip.status=='active', 'color-green': trip.status=='Done', 'color-red': trip.status=='canceled'}">{{trip.status}}</div>
+        </div>
+        <div class="trip__userRating" *ngIf="trip.students[0].star && trip.status =='Done'">
+            <h2 class="trip__subheader">your rating</h2>
+            <span *ngFor="let x of trip.students[0].star | times">&#9733;</span>
+            <span *ngFor="let x of 5-trip.students[0].star | times">&#9734;</span>
+        </div>
+        <div class="trip__stars" attr.data-code="{{trip.students[0].code}}" *ngIf="!trip.students[0].star && trip.status =='Done'" (click)="rating($event)">
+            <h2 class="trip__subheader">rate this trip</h2>
+            <span data-number="5">&#9734;</span>
+            <span data-number="4">&#9734;</span>
+            <span data-number="3">&#9734;</span>
+            <span data-number="2">&#9734;</span>
+            <span data-number="1">&#9734;</span>
+        </div>
+    </div>
+    <div class="goback" [routerLink]="'/'">&larr; Go back</div>
+    <app-alert (close)="onClose()" *ngIf="this.isEnrolled && open" [message]="message"></app-alert>
+</div>

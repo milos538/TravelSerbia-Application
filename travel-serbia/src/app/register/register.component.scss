@@ -1,0 +1,112 @@
+@import "../../mixins.scss";
+.register{
+    width: 30%;
+    display: inline-block;
+    background-color: #f6f8fc;
+    height: 100vh;
+    @include respond(tab-port) {
+        width: 50%;
+    }
+    @include respond(phone) {
+        width: 100%;
+    }
+    h1{
+        color: #2b2b40;
+        font-size: 4rem;
+        padding: 2rem 0 0 2rem;
+        margin: 2rem 0;
+    }
+    h2{
+        color: #6b7e93;
+        font-size: 2rem;
+        padding-left: 2rem;
+        margin-top: 2rem;
+        width: 90%;
+    }
+    &__form{
+        display: block;
+        height: 100%;
+        padding: 2rem;
+    }
+
+    &__formInput{
+        box-sizing: border-box;
+        display: block;
+        width: 80%;
+        margin: 2rem 0;
+        padding: 1rem;
+        font-size: 1.5rem;
+        outline: 0;
+    }
+}
+.button{
+    background-color: #17b978;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size:1.6rem;
+    letter-spacing: 5px;
+}
+.right{
+    width: 70%;
+    height: 100vh;
+    display: inline-block;
+    background-image: url('../../assets/img/register/bike2.jpg');
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-size: cover;
+    @include respond(tab-port) {
+        width: 50%;
+    }
+    @include respond(phone) {
+        display: none;
+    }
+}
+.container{
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+.goback{
+    position: absolute;
+    background-color: lighten($color: #a52a2a, $amount: 10);
+    color: white;
+    font-size: 2rem;
+    padding: 1rem;
+    bottom: 1rem;
+    left: 2rem; 
+    border-radius: 5px;
+    cursor: pointer;
+}
+.error{
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    font-size: 2rem;
+    padding: 2rem 2rem 1rem 2rem;
+    border-radius: .25rem;
+    margin: 1rem 0 0 2rem;
+    width: 80%;
+}
+.success{
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    font-size: 2rem;
+    padding: 2rem 2rem 1rem 2rem;
+    border-radius: .25rem;
+    margin: 1rem 0 0 2rem;
+    width: 80%;
+}
+
+input.ng-invalid.ng-touched,select.ng-invalid.ng-touched{
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+input.ng-valid.ng-touched,select.ng-valid.ng-touched{
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}

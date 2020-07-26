@@ -1,0 +1,41 @@
+<div class="trip">
+    <div class="trip__up" [ngStyle]="{background: 'center/cover no-repeat url(../../assets/img/trips/' + trip.image + ')'}">
+      <div class="trip__up__container">
+            <div class="trip__up__container__name">{{trip.name}}</div><br>
+            <div class="trip__up__container__location">{{trip.location}}</div>
+        </div>  
+    </div>
+    <div class="trip__down">
+        <div class="trip__down__menu">
+            <div class="trip__down__menu__left">
+                <span><i class="fas fa-tags"></i><span class="price"> {{trip.price}}</span> RSD</span>
+                <span><i class="far fa-calendar-alt"></i><span class="days">6</span>DAYS</span>
+            </div>
+            <div class="trip__down__menu__right">
+                <span class="enroll" (click)="onClick()" *ngIf="isLoggedIn && !this.isEnrolled"><i class="fas fa-plane-departure"></i> ENROLL</span>
+                <span class="ask"><i class="far fa-question-circle"></i> ASK US</span>
+                <app-alert (close)="onClose()" *ngIf="isLoggedIn && this.isEnrolled && open" [message]="message"></app-alert>
+            </div>
+        </div>
+        <div class="trip__down__students" *ngIf="isLoggedIn">
+            <h1>participants</h1>
+            <ul>
+                <li *ngFor="let student of this.trip.students"><img src="../../../assets/img/b-user.svg" width="10px"alt="user">{{student.name}} {{student.surname}}</li>
+            </ul>
+        </div>
+        <div class="trip__down__text">
+            <h1>About trip</h1>
+            <span>{{trip.text}}</span>
+            <div class="trip__down__table">
+                <div class="trip__down__table__left">
+                    <span class="text">DATE FROM:</span><span>{{trip.from}}</span>
+                    <span class="text">STATUS:</span><span>{{trip.status | uppercase}}</span>
+                </div>
+                <div class="trip__down__table__right">
+                    <span class="text">DATE TO:</span><span>{{trip.to}}</span>
+                    <span class="text">TYPE:</span><span>{{trip.type | uppercase}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

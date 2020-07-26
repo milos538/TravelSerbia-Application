@@ -1,0 +1,202 @@
+@import "../../mixins.scss";
+
+.profile{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+    @include respond(tab-land) {
+        height: auto;
+    }
+    &__left{
+        width: 20%;
+        background: linear-gradient(to right, rgb(118, 184, 82), rgb(141, 194, 111));
+        display: inline-block;
+        height: 100%;
+        font-size: 2rem;
+        color: white;
+        text-align: center;
+        &::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        @include respond(tab-land) {
+            width: 100%;
+            display: block;
+            height: 30%;
+        }
+        @include respond(phone) {
+            height: 40%;
+        }
+
+        &__profilePicture{
+            width: 100%;
+            @include respond(tab-land) {
+                width: 30%;
+                height: 100%;
+                display: inline-block;
+                float: left;
+            }
+            @include respond(phone) {
+                float: none;
+                display: block;
+                width: 100%;
+                height: 50%;
+                img{
+                    width: 15rem;
+                }
+            }
+        }
+        &__picture{
+            margin:3rem 0;
+            width: 50%;
+        }
+        &__name{
+            text-transform: uppercase;
+            @include respond(tab-land) {
+                width: 70%;
+                display: inline-block;
+                vertical-align: top;
+                margin-top: 2rem;
+            }
+            @include respond(phone) {
+                width: 100%;
+                display: block;
+                margin: 2rem 0;
+            }
+        }
+        &__info{
+            width: 100%;
+            margin: 5rem 0 0 15%;
+            font-size: 1.5rem;
+            @include respond(tab-land) {
+                width: 70%;
+                display: inline-block;
+                margin: 0;
+                float: right;
+            }
+            @include respond(phone) {
+                float: none;
+                display: block;
+                width: 100%;
+            }
+            .text{
+                font-weight: normal;
+                text-transform: uppercase;
+                display: inline;
+                padding-left: .5rem;
+            }
+            span{
+                display: block;
+                margin-bottom: 5rem;
+                text-align: left;
+                @include respond(tab-land) {
+                    text-align: center;
+                    margin:2rem 0;
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+    &__right{
+        @include respond(tab-land) {
+            width: 100%;
+        }
+        width: 80%;
+        height: 100%;
+        display: inline-block;
+        vertical-align: top;
+        h1{
+            font-size:3rem;
+            text-transform: uppercase;
+            padding-left: 3rem;
+            margin-top:5rem;
+            @include respond(phone) {
+                text-align: center;
+                padding: 0;
+            }
+        }
+    }
+    label{
+        display: inline-block;
+        width: 50%;
+        font-size: 2rem;
+        padding: 3rem;
+        text-transform: uppercase;
+        @include respond(phone) {
+            margin: 0 auto;
+            display: block;
+            text-align: center;
+        }
+    }
+    input,select{
+        display: inline-block;
+        font-size: 2rem;
+        box-sizing: border-box;
+        width:20%;
+        border: 2px solid rgb(141, 194, 111);
+        transition: all 0.2s;
+        border-radius: 1rem;
+        padding:.5rem .5rem;
+        &:focus{
+            padding: .5rem  2rem;
+        }
+        @include respond(tab-port) {
+            width: 30%;
+        }
+        @include respond(phone) {
+            margin: 0 auto;
+            display: block;
+            text-align: center;
+            width:50%;
+        }
+    }
+    input[type="submit"]{
+        text-transform: uppercase;
+        background: linear-gradient(to right, rgb(118, 184, 82), rgb(141, 194, 111));
+        color: white;
+        padding:1rem;
+        border: 0;
+        outline:none;
+        transition: all 0.2s;
+        &:hover{
+            box-shadow: 0 1rem 2rem rgba(black,0.15);
+            transform:translateY(-2px);
+        }
+        &:active{
+            box-shadow: 0 .5rem 1rem rgba(black,0.15);
+            transform: translateY(0);
+        }
+    }
+    &__goback{
+        position: absolute;
+        background-color: lighten($color: #a52a2a, $amount: 10);
+        color: white;
+        font-size: 2rem;
+        padding: 1rem;
+        bottom: 1rem;
+        left: 2rem; 
+        border-radius: 5px;
+        cursor: pointer;
+        @include respond(phone) {
+            position: static;
+            display: inline-block;
+            text-align: center;
+            margin: 1rem 0 0 25%;
+            width:50%;
+        }
+    }
+
+}
+
+input.ng-invalid.ng-touched,select.ng-invalid.ng-touched{
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+input.ng-valid.ng-touched,select.ng-valid.ng-touched{
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}

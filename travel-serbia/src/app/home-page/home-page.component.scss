@@ -1,0 +1,273 @@
+@import "../../mixins.scss";
+.home{
+    width: 100%;
+    height: 80vh;
+    background-image: linear-gradient(rgba(0, 0, 0, .7),rgba(0,0,0,.7)),url(../../assets/img/home/road.jpg);
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+    @include respond(tab-land) {
+        height: 60vh;
+    }
+    &__logo{
+        position: absolute;
+        top: 1rem;
+        left: 10rem;
+        width:5rem;
+        @include respond(phone) {
+            left: 2rem;
+        }
+    }
+    &__menu{
+        margin-left: 20rem;
+        li{
+            list-style-type:none;
+            display: inline-block;
+            padding: 2rem;
+            a{
+                color: white;
+                font-size: 2rem;
+                text-decoration: none;
+            }
+        }
+        @include respond(phone) {
+            display: none;
+        }
+    }
+    &__box{
+        width:30%;
+        height: 35%;
+        margin: 10rem;
+        @include respond(tab-land) {
+            width:45%;
+        }
+        @include respond(phone) {
+            width:100%;
+            margin: 25% auto;
+        }
+    }
+    &__header{
+        color:white;
+        width:90%;
+        font-size: 4rem;
+        text-transform: uppercase;
+        @include respond(phone) {
+            text-align: center;
+            width: 100%;
+            span{
+                display: block;
+            }
+        }
+    }
+    &__form{
+        height: 50%;
+        width: 90%;
+        @include respond(phone) {
+            width: 50%;
+            margin: 0 auto;
+        }
+    }
+    &__search{
+        width:90%;
+        font-size: 2rem;
+        outline: 0;
+        padding: 0.3rem;
+        padding-left: 3rem;
+        border-radius: 3px;
+        margin-top: 1rem;
+        background-image: url('../../assets/img/search.png');
+        background-size: 2rem;
+        background-position: 3px 3px;
+        background-repeat: no-repeat;
+    }
+    &__buttons{
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 1.5rem;
+    }
+    &__login{
+        background-color: #17b978;
+        color: white;
+        display: inline-block;
+        padding: 1rem;
+        border-radius: 5px;
+        position: relative;
+        &__checkbox{
+            display: none;
+        }
+        &__checkbox:checked ~ &__popup {
+            opacity: 1;
+            width: 30rem;
+        }
+        &__button{
+            cursor: pointer;
+        }
+
+        &__popup{
+            opacity: 0;
+            width: 0;
+            position: absolute;
+            top: 4rem;
+            right: -8.5rem;
+            z-index: 100;
+            background-color: white;
+            padding: 1rem;
+            border: 3px solid #f1f1f1;
+            span{
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+            }
+            h1{
+                color: black;
+                font-size: 2rem;
+                font-weight: bold;
+                margin-left: 1rem;
+                text-transform: uppercase;
+            }
+            form{
+                width: 90%;
+                outline: none;
+            }
+            label{
+                display: block;
+            }
+            input{
+                box-sizing: border-box;
+                width: 90%;
+                padding: 1.5rem;
+                margin: 1rem;
+                font-size: 1.5rem;
+                border: none;
+                background: #f1f1f1;
+                border-radius: 5px;
+            }
+            input[type=text]:focus,input[type=password]:focus{
+                background-color: #ddd;
+                outline: none;
+            }
+            input[type=submit]{
+                background-color: #17b978;
+                color: white;
+                font-weight: bold;
+                font-size: 1.5rem;
+                width:90%;
+                cursor: pointer;
+                opacity: .8;
+                outline: none;
+            }
+            input[type=submit]:hover{
+                opacity: 1;
+                outline: none;
+            }
+        }
+    }
+    &__register{
+        background-color: brown;
+        color: white;
+        display: inline-block;
+        padding: 1rem;
+        margin-left: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    &__profile{
+        background-color: #17b978;
+        color: white;
+        display: inline-block;
+        padding: 1rem;
+        border-radius: 5px;
+        position: relative;
+        &__checkbox{
+            display: none;
+        }
+        &__checkbox:checked ~ &__popup {
+            opacity: 1;
+            width: 13rem;
+        }
+        &__button{
+            cursor: pointer;
+        }
+        &__popup{
+            opacity: 0;
+            width: 0;
+            position: absolute;
+            top: 4rem;
+            left: -5rem;
+            z-index: 100;
+            background-color: white;
+            padding: 1rem 1rem 0 1rem;
+            border: 3px solid #f1f1f1;
+            clip-path: polygon(0 5%, 46% 5%, 52% 0, 57% 5%, 100% 5%, 100% 100%, 0 100%);
+            span{
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+            }
+            label{
+                display: block;
+            }
+            ul{
+                list-style-type: none;
+            }
+            li{
+                padding: 1rem 0;
+                opacity: .8;
+                cursor: pointer;
+            }
+            li:hover{
+                background-color: #f5f5f5;
+                opacity: 1;
+            }
+            li:last-child{
+                border-top: 1px solid #ccc;
+                padding-bottom: 1rem;
+            }
+            a{
+                color: black;
+                text-decoration: none;
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+.error{
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 1.5rem;
+    border-radius: .25rem;
+    margin: 1rem;
+    width: 90%;
+}
+.search{
+    width: 100%;
+    background-color: white;
+    color:black;
+    border-radius: 3px;
+    margin-top: 5px;
+    font-size: 2rem;
+    &__list{
+        width: 100%;
+    }
+    &__item{
+        padding: 1rem;
+        text-transform: uppercase;
+        span{
+            font-size: 1rem;
+        }
+    }
+    &__item:hover{
+        background-color: grey;
+        color: white;
+        cursor: pointer;
+    }
+    &__item:not(:last-child){
+        border-bottom: 2px solid #ccc;
+    }
+}
