@@ -3,6 +3,13 @@ University project - Final exam on Client-side web applications 2020 <br/>
 The application is used by students to apply for faculative trips. Students can register, log in, book trips, change profile data as well as view travel history and rate each on a scale of 1 to a maximum of 5 stars.<br/>
 Inside Project folder you can find images of UI and/or project documentation.
 
+### Installing
+
+To install all the dependencies needed to run the project, run:
+
+```
+npm install
+```
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.<br/>
